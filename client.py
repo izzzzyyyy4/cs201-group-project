@@ -1,13 +1,14 @@
 class Client:
-    def __init__(self, id, balance):
-        self.id = id
+    def __init__(self, name, balance):
+        self.name = name
         self.balance = balance
-        self.bike = None
 
-    def take_bike(self, bike):
-        self.bike = bike
+    def pay(self, amount):
+        if amount < 0:
+            return False
 
-    def return_bike(self):
-        bike = self.bike
-        self.bike = None
-        return bike
+        if self.balance >= amount:
+            self.balance -= amount
+            return True
+
+        return False
