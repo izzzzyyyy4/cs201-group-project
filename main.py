@@ -29,7 +29,7 @@ def main():
         client = random.choice(clients)
         bike_type = random.choice(["standart", "electric"])
         bike = manager.rent_bike(client, random.choice(stations), bike_type)
-        manager.return_bike(client, bike, random.choice(stations), 100)
+        manager.return_bike(client, bike, random.choice(stations), random.randint(1, 100))
 
     empty_stations = [s for s in stations if len(s.bikes) == 0]
     manager.rent_bike(client, random.choice(empty_stations))
