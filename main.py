@@ -27,7 +27,7 @@ def main():
 
     for i in range(3):
         client = random.choice(clients)
-        bike_type = random.choice("standart", "electric")
+        bike_type = random.choice(["standart", "electric"])
         manager.rent_bike(client, random.choice(stations), bike_type)
         manager.return_bike(client, random.choice(stations))
 
