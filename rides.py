@@ -7,8 +7,8 @@ class ManageRent:
         self.total_revenue = 0
         self.active_rentals = {}
 
-    def rent_bike(self, client, station, bike_id):
-        bike_count = Station.get_bike_count(station)
+    def rent_bike(self, client, bike_id):
+        bike_count = Station.get_bike_count()
         if bike_count <= 0:
             print("Can't rent bike")
             return
@@ -17,7 +17,7 @@ class ManageRent:
             self.active_rentals[bike] = client
 
 
-    def return_bike(self, client, bike, duration, station):
+    def return_bike(self, client, bike, duration):
         if not self.active_rentals[bike] == client:
             print("Bike isn't yours")
             return
@@ -28,7 +28,7 @@ class ManageRent:
         Station.add_bike(bike)
         cost = self.calculate_cost(bike, duration)
         self.total_revenue += cost
-        Client.balance -= cost
+        Client.pay(cost)
 
 
 
