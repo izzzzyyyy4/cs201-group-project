@@ -11,12 +11,22 @@ class Bike:
         duration = self.getting_minutes(end_time) - self.getting_minutes(start_time)
         return duration
 
+    def is_available_to_rent(self):
+
+        return True
+
 class StandartBike(Bike):
     def __init__(self, bike_id):
         super().__init__(bike_id, "standart")
         self.price_for_minute = 2
 
 class ElectricBike(Bike):
-    def __init__(self, bike_id):
+    def __init__(self, bike_id,battery = 100):
         super().__init__(bike_id, "electric")
         self.price_for_minute = 5
+
+    def is_low_battery(self):
+        return self.battery_level < 20
+
+    def is_available_to_rent(self):
+        return self.battery_level >= 20
