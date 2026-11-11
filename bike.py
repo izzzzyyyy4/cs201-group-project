@@ -1,9 +1,19 @@
 class Bike:
+    standart_bike_id = []
+    electric_bike_id = []
+
     def __init__(self,bike_id,bike_type):
         self.bike_id = bike_id
         self.bike_type = bike_type
+        if self.bike_type == "standart" and self.bike_id not in Bike.standart_bike_id:
+            Bike.electric_bike_id.append(self.bike_id)
+        elif self.bike_type == "electric" and self.bike_id not in Bike.electric_bike_id:
+            Bike.standart_bike_id.append(self.bike_id)
 
-
+    def get_standart_id(self,standart_bike_id):
+        return standart_bike_id
+    def get_electric_id(self,electric_bike_id):
+        return electric_bike_id
     def getting_minutes(self,input_time):
         hour , minute = input_time.split(":")
         return int(hour) * 60 + int(minute)
