@@ -2,9 +2,10 @@ import random
 
 from client import Client
 from stations import Station
-from rides import ManageRent
+from bike import StandartBike, ElectricBike
 
 from rides import ManageRent
+
 
 def main():
     manager = ManageRent()
