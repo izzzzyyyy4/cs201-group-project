@@ -1,6 +1,6 @@
-import client
-import bike
-import stations
+from client import Client
+from bike import Bike
+from stations import Station
 
 class ManageRent:
     def __init__(self):
@@ -8,11 +8,11 @@ class ManageRent:
         self.active_rentals = {}
 
     def rent_bike(self, client, station, bike_id):
-        bike_count = stations.get_bike_count(station)
+        bike_count = Station.get_bike_count(station)
         if bike_count <= 0:
             print("Can't rent bike")
             return
-        bike = stations.take_bike(bike_id)
+        bike = Station.take_bike(bike_id)
         if bike not in self.active_rentals:
             self.active_rentals[bike] = client
 
@@ -25,14 +25,17 @@ class ManageRent:
             print("Bike not rented")
             return
         self.active_rentals.pop(bike)
-        stations.add_bike(bike)
+        Station.add_bike(bike)
+        cost = self.calculate_cost(bike, duration)
+        self.total_revenue += cost
+        Client.balance -= cost
 
 
 
     def calculate_cost(self, bike, length):
-        if bike.bike_type == "електронний":
+        if Bike.bike_type == "electric":
             return length * bike.Electric_bike.price_for_minute
-        if bike.bike_type == "стандартний":
+        if Bike.bike_type == "standart":
             return length * bike.Standart_bike.price_for_minute
 
     def get_total_revenue(self):
