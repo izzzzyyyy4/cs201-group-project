@@ -17,7 +17,7 @@ def main():
         if bike_type == 0:
             bike = StandartBike(i)
         elif bike_type == 1:
-            bike = ElectronicBike(i)
+            bike = ElectricBike(i)
         station = random.choice(stations)
         station.add_bike(bike)
         
