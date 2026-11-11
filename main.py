@@ -1,7 +1,7 @@
 import random
 
 from client import Client
-from station import Station
+from stations import Station
 from rides import ManageRent
 
 from rides import ManageRent
