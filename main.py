@@ -1,10 +1,11 @@
 import random
 
 from client import Client
-from station import Station
-from rides import ManageRent
+from stations import Station
+from bike import StandartBike, ElectricBike
 
 from rides import ManageRent
+
 
 def main():
     manager = ManageRent()
@@ -17,7 +18,7 @@ def main():
         if bike_type == 0:
             bike = StandartBike(i)
         elif bike_type == 1:
-            bike = ElectronicBike(i)
+            bike = ElectricBike(i)
         station = random.choice(stations)
         station.add_bike(bike)
         

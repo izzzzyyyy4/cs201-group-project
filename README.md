@@ -89,7 +89,7 @@ https://github.com/izzzyyyyy4/cs201-group-project
 
 **Демо-сценарій по кроках:**
 
-1.
+1. 
 2.
 3.
 
@@ -97,7 +97,11 @@ https://github.com/izzzyyyyy4/cs201-group-project
 
 | Файл | Власник | Що в ньому буде (класи, функції) |
 |---|---|---|
-|  |  |  |
+| `stations.py` | Ілля Ярмолюк | Клас `Station` (назва `name`, збереження списку `bikes`, методи `add_bike`, `take_bike`, `get_bikes_count`, `put_bikes`) |
+| `bike.py` | Артем Грицай | Базовий клас `Bike`, класи-нащадки `StandartBike` (2 грн/хв) та `ElectricBike` (5 грн/хв) |
+| `client.py` | Євгеній Нікішенко | Клас `Client` (ім'я `name`, баланс `balance`, метод списання коштів `pay`) |
+| `rides.py` | Вадим Підлісний | Клас `ManageRent` (активні оренди `active_rentals`, методи `rent_bike`, `return_bike`, `calculate_cost`, `get_total_revenue`) |
+| `main.py` | В'ячеслав Давиденко | Точка входу `main()`: генерація даних, прогін 3 поїздок, обробка помилки та фінальний звіт |
 
 ---
 
