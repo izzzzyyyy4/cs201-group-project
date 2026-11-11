@@ -10,9 +10,9 @@ class Station:
   def add_bike(self, bike) -> None:
     self.bikes.append(bike)
 
-  def take_bike(self, bike_id: int):
+  def take_bike(self, bike_type: int):
     for bike in self.bikes:
-      if bike.id == bike_id:
+      if bike.bike_type == bike_type:
         self.bikes.remove(bike)
         return bike
     return None

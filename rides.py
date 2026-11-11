@@ -7,7 +7,7 @@ class ManageRent:
         self.total_revenue = 0
         self.active_rentals = {}
 
-    def rent_bike(self, station, client, bike_id):
+    def rent_bike(self, station, client, bike_type):
         bike_count = station.get_bikes_count()
         if bike_count <= 0:
             print("Can't rent bike")
