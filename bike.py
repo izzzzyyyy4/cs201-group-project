@@ -10,8 +10,14 @@ class Bike:
     def drive (self,start_time,end_time):
         duration = self.getting_minutes(end_time) - self.getting_minutes(start_time)
         return duration
-
-
+class Standart_bike(Bike):
+    def __init__(self,bike_id,bike_type = "стандартний",price_for_minute = 2):
+        super().__init__(bike_id,bike_type)
+        self.price_for_minute = price_for_minute
+class Electric_bike(Bike):
+    def __init__(self,bike_id,bike_type = "електронний",price_for_minute = 5):
+        super().__init__(bike_id,bike_type)
+        self.price_for_minute = price_for_minute
 
 
 
